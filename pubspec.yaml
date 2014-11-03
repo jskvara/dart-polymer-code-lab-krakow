@@ -1,0 +1,11 @@
+name: DartPolymerCodeLabKrakow
+description: A sample Polymer application
+dependencies:
+  core_elements: any
+  polymer: '>=0.15.0 <0.16.0'
+  polymer_elements: any
+transformers:
+- polymer:
+    entry_points:
+      - web/step_01/index.html
+      - web/step_02/index.html

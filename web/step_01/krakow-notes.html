@@ -1,0 +1,16 @@
+<!-- import polymer-element's definition -->
+<link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="krakow-note.html">
+
+<polymer-element name="krakow-notes">
+  <template>
+     <a href="#" id="notes_delete_all">Delete all</a>
+    <input type="text" id="note_add_form" on-change={{createNote}} />
+    <div>
+      <template repeat="{{note in notes}}">
+        <krakow-note note="{{note}}"></krakow-note>
+      </template>
+    </div>
+  </template>
+  <script type="application/dart" src="krakow-notes.dart"></script>
+</polymer-element>
