@@ -4,11 +4,11 @@
 
 <polymer-element name="krakow-notes">
   <template>
-     <a href="#" id="notes_delete_all">Delete all</a>
+    <a href="#" id="notes_delete_all" on-click="{{deleteAll}}">Delete all</a>
     <input type="text" id="note_add_form" on-change={{createNote}} />
     <div>
-      <template repeat="{{note in notes}}">
-        <krakow-note note="{{note}}"></krakow-note>
+      <template repeat="{{note in notes | enumerate}}">
+        <krakow-note note="{{note}}" position={{note.index}}></krakow-note>
       </template>
     </div>
   </template>
