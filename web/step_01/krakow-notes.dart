@@ -14,8 +14,7 @@ class KrakowNotes extends PolymerElement {
   @observable List notes = toObservable([]);
 
   KrakowNotes.created() : super.created() {
-    notes.add(new Note('ttt'));
-    notes.add(new Note('aaa'));
+    loadFromLoacalStorage();
   }
   
   void createNote(Event event, Object noteText, PaperInput target) {
@@ -31,19 +30,19 @@ class KrakowNotes extends PolymerElement {
     notes.add(new Note(noteText)); 
     saveToLocalStorage();
   }
-  
+
   void deleteNote(Event event, var note) {
     int index = note['index'];
     notes.removeAt(index);
   }
-  
+
   void deleteAll(Event event) {
     notes.clear();
   }
 
   void loadFromLoacalStorage() {
     if (window.localStorage[NOTES_LIST] != null) {
-      notes = Note.fromJson(window.localStorage[NOTES_LIST]);
+      notes = toObservable(Note.fromJson(window.localStorage[NOTES_LIST]));
     }
   }
 

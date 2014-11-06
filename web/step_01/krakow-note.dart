@@ -1,4 +1,5 @@
 import 'package:polymer/polymer.dart';
+import 'dart:html';
 import 'note.dart';
 import 'dart:html';
 import 'package:paper_elements/paper_icon_button.dart';
