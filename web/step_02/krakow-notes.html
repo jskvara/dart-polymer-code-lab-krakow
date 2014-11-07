@@ -1,0 +1,43 @@
+<!-- import polymer-element's definition -->
+<link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="packages/paper_elements/paper_input.html">
+<link rel="import" href="packages/paper_elements/paper_button.html">
+<link rel="import" href="packages/core_elements/core_icon.html">
+<link rel="import" href="packages/core_elements/core_toolbar.html">
+
+<polymer-element name="krakow-notes">
+  <template>
+    <style>
+      #notes-delete-all {
+        background: red;
+      }
+      core-toolbar h2 {
+        color: white;
+      }
+      core-toolbar paper-input {
+        line-height: 1em;
+        width: 100%;
+      }
+    </style>
+
+    <core-toolbar>
+      <h2>Notes app</h2>
+
+      <span flex>
+        <paper-input floatinglabel label="Enter note"></paper-input>
+      </span>
+
+      <paper-button raised id="notes-delete-all">
+        <core-icon icon="clear">
+        </core-icon>
+        Delete all
+      </paper-button>
+    </core-toolbar>
+
+    <div class="content">
+
+    </div>
+
+  </template>
+  <script type="application/dart" src="krakow-notes.dart"></script>
+</polymer-element>
