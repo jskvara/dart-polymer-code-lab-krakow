@@ -4,18 +4,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Note app</title>
+    <title>Sample app</title>
 
     <!-- include the web_components polyfills with support for Dart. -->
-    <script src="packages/web_components/platform.js"></script>
+    <script src="../packages/web_components/platform.js"></script>
 
-    <!-- import the notes -->
-    <link rel="import" href="krakow-notes.html">
+    <!-- import the click-counter -->
+    <link rel="import" href="clickcounter.html">
     
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <krakow-notes></krakow-notes>
+    <h1>Index</h1>
+
+    <p>Hello world from Dart!</p>
+
+    <div id="sample_container_id">
+      <click-counter count="5"></click-counter>
+    </div>
 
     <!-- bootstrap polymer -->
     <script type="application/dart">export 'package:polymer/init.dart';</script>

@@ -9,3 +9,7 @@ transformers:
     entry_points:
       - web/step_01/index.html
       - web/step_02/index.html
+      - web/step_03/index.html
+      - web/step_04/index.html
+      - web/step_05/index.html
+      - web/step_06/index.html
