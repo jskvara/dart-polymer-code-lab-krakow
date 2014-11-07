@@ -1,0 +1,37 @@
+<!-- import polymer-element's definition -->
+<link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="packages/paper_elements/paper_button.html">
+<link rel="import" href="packages/paper_elements/paper_icon_button.html">
+<link rel="import" href="packages/paper_elements/paper_shadow.html">
+<link rel="import" href="packages/paper_elements/paper_ripple.html">
+
+<polymer-element name="krakow-note">
+  <template>
+    <style>
+      .note {
+        padding: 0.5em;
+        margin: 0.5em;
+      }
+      .note .note-text {
+        margin: 0.5em;
+        font-size: 2em;
+      }
+      paper-icon-button.delete {
+        color: red;
+        float: right;
+      }
+    </style>
+
+    <div class="note" layout horizontal>
+      <div flex class="note-text">
+        {{note.text}}
+        <paper-ripple fit></paper-ripple>
+      </div>
+      <div>
+        <paper-icon-button icon="clear" class="delete"></paper-icon-button>
+      </div>
+      <paper-shadow z="2"></paper-shadow>
+    </div>
+  </template>
+  <script type="application/dart" src="krakow-note.dart"></script>
+</polymer-element>
