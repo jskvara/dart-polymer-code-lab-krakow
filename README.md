@@ -100,7 +100,7 @@ And some CSS changes:
 			line-height: 1em;
 			width: 100%;
 		}
-</style>
+	</style>
 ```
 
 Now, we can start adding Polymer Core and Paper elements to our element. First, we need to import elements, which we want to use. We will use paper input, paper button, core toolbar and core icon elements.
@@ -262,7 +262,13 @@ class Note {
 }
 ```
 
-Now we can use our new element `krakow-note`. We want to use this element for each item in notes list. So we can easily use polymer `template` tag. In `krakow-notes.html` you need to add inside content `<div>` this code:
+Now we can use our new element `krakow-note`. We want to use this element for each item in notes list. So we can easily use polymer `template` tag. In `krakow-notes.html` you need to import our element:
+
+```html
+<link rel="import" href="krakow-note.html">
+```
+
+Add inside content `<div>` in `krakow-notes.html` we can use our element:
 
 ```html
       <template repeat="{{note in notes }}">
@@ -275,6 +281,10 @@ For every note object in notes array we render `krakow-note` element, with `note
 In `krakow-notes.dart` file, we need to declare our `notes` collection and we can add some `Note` objects. When we add `@observable` annotation to our property, it will be availabe in our template and every change will be propragated to template. We need to declare this list as observable (method `toObservable()`) instead of normal `List`.
 
 ```dart
+import 'note.dart';
+
+...
+
   @observable List notes = toObservable([]);
 
   KrakowNotes.created() : super.created() {
@@ -296,6 +306,11 @@ In `krakow-notes.html` file we add `on-change` attribute to `paper-input` elemen
 And in `krakow-notes.dart` file we add new method `createNote`. This method is similar to `jQuery` methods from `JavaScript` and has three parameters: event, data and target. When this method is run, we check if value is not empaty and add data from our input to the list of our notes.
 
 ```dart
+import 'package:paper_elements/paper_input.dart';
+import 'dart:html';
+
+...
+
   void createNote(Event event, Object noteText, PaperInput target) {
     String noteText = target.value;
     if (noteText.isNotEmpty) {
@@ -351,7 +366,7 @@ Now we can add `on-click` attribute to `paper-icon-button` element in `krakow-no
 And in `krakow-note.dart` we declare this method. Because the list of our notes is in parent element, we can fire our custom event with name `delete-note` and with index of deleted note.
 
 ```dart
-  void deleteNote(Event event, Object value, PaperIconButton target) {
+  void deleteNote(Event event) {
     this.fire('delete-note', detail: {'index': index});
   }
 ```
